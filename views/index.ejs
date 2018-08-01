@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>帳戶小作品</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div>
+      <input type="button" name="add" onclick="Add()" value="新增">
+      <input type="text" name="searchId" id="searchId" placeholder="請輸入要搜尋的id">
+      <input type="button" name="searchButton" id="searchButton" value="搜尋" onclick="Search();">
+    </div>
+    <table class="form">
+      <tr>
+          <th>id</th>
+          <th>名字</th>
+          <th>手機</th>
+          <th>信箱</th>
+          <th colspan=2>功能</th>
+      </tr>
+      <% for( var i = 0; i<data.length ; i++) { %>
+      <tr>
+          <td><%= data[i].id %></td>
+          <td><%= data[i].name %></td>
+          <td><%= data[i].phone %></td>
+          <td><%= data[i].email %></td>
+          <td><input type="button" name="add" value="編輯" onclick="Edit('<%= data[i].id  %>');"></td>
+          <td><input type="button" name="delete" value="刪除" onclick="Delete('<%= data[i].id  %>');"></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
+
+
+<script>
+
+//導向新增資料頁面
+function Add() {
+  location.href ="/add";
+}
+
+//資料修改頁面
+function Edit(id) {
+  location.href ="/edit?id="+id;
+}
+
+//刪除
+function Delete(id) {
+  location.href="/delete?id="+id;
+}
+//搜尋資料
+function Search() {
+  var id = document.getElementById('searchId').value
+  location.href="/search?id="+id;
+}
+
+</script>

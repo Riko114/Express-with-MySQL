@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>編輯資料</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <form action="/saveEdit" method="post" name="edit">
+       <div>
+           <input type="text" name="id" id="id" hidden value="<%= data[0].id %>">
+       </div>
+       <div>
+           <label for="name">名字</label>
+           <input type="text" name="name" id="name" value="<%= data[0].name %>">
+       </div>
+       <div>
+           <label for="phone">手機</label>
+           <input type="text" name="phone" id="phone" value="<%= data[0].phone %>"> 
+       </div>
+       <div>
+           <label for="email">信箱</label>
+           <input type="text" name="email" id="email" value="<%= data[0].email %>">
+       </div>
+           <input type="submit" name="提交">
+           <input type="reset" name="重置">
+    </form>  
+</body>
+</html>
